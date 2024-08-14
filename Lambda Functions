@@ -1,0 +1,68 @@
+# lambda  argument:expression
+
+add10=lambda x: x+10
+print(add10(5))
+#output : 15
+
+def add10(x):
+    return x+10
+print(add10(5))
+#output : 15
+ 
+mul=lambda x,y:x*y
+print(mul(4,5))
+
+######## lambda in sorting ###########
+
+a=[(2,1),(7,2),(5,4),(8,4),(3,5)]
+sorted_a=sorted(a)
+#print(a)
+#print(sorted_a)
+sorted_a1=sorted(a,key=lambda x:x[1])   #1
+#print(sorted_a1)
+
+def sorted_y(x):         #2
+    return x[1]
+sorted_a2=sorted(a,key=sorted_y)
+#print(sorted_a2)    #1 and 2 are same
+
+
+#sort by sum of elements in list
+add=sorted(a, key=lambda x:x[0]+x[1])
+#print(add)
+
+# using normal function
+def  addie(x):
+    return x[0]+x[1]
+sort=sorted(a,key=addie)
+#print(sort)
+
+######### map(func,seq)################
+
+a=[12,3,4,54,5,5,55,]
+b=map(lambda x:x*2,a)   #1
+print(list(b))          
+
+b=[x*2 for x in a]   #2
+print(b)               #1 and 2 are same
+
+########## filter(func,seq) #########
+
+a=[1,2,3,4,5,5,6,6,21]
+b= map (lambda x:x%2==0,a)  
+print (list(b))
+
+b=filter (lambda x:x%2==0,a)
+print (list(b))
+
+#filter func is like condition checking  
+b= [x for x in a if x%2==0]
+print(b)
+
+
+############### reduce(func,seq)#########
+def add_2(x,y):
+    return x+2
+a=[1,2,3,4]
+product_a=reduce(lambda x,y:x*y,a)
+print(product_a)
